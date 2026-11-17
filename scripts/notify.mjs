@@ -6,7 +6,8 @@ const { TWILIO_ACCOUNT_SID: sid, TWILIO_AUTH_TOKEN: token, TWILIO_FROM: from, AD
 if (!list.length) process.exit(0);
 
 // Slack: incoming webhook, posted first so it works even before Twilio texting is approved.
-const slackUrl = (process.env.SLACK_WEBHOOK_URL || "").trim();
+// Accept the bare URL or anything containing it (e.g. Slack's sample curl command pasted whole).
+const slackUrl = ((process.env.SLACK_WEBHOOK_URL || "").match(/https:\/\/hooks\.slack\.com\/services\/[A-Za-z0-9\/]+/) || [""])[0];
 for (const m of list.filter((m) => m.to === "slack")) {
   if (!slackUrl) { console.log("SLACK_WEBHOOK_URL not set; skipping Slack"); break; }
   const res = await fetch(slackUrl, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text: m.body }) });

@@ -10,9 +10,9 @@ jobs:
         env:
           SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
         run: |
-          url="$(printf '%s' "$SLACK_WEBHOOK_URL" | tr -d '[:space:]')"
-          if [ -z "$url" ]; then echo "SLACK_WEBHOOK_URL is not set"; exit 1; fi
-          echo "Webhook looks like: ${url:0:34}... (${#url} chars)"
+          url="$(printf '%s' "$SLACK_WEBHOOK_URL" | grep -oE 'https://hooks\.slack\.com/services/[A-Za-z0-9/]+' | head -1)"
+          if [ -z "$url" ]; then echo "No https://hooks.slack.com/services/... URL found in SLACK_WEBHOOK_URL"; exit 1; fi
+          echo "Found a Slack webhook URL in the secret (${#url} chars)"
           code=$(curl -s -o /tmp/out -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
             --data '{"text":":white_check_mark: JAM Construction alerts are connected. New jobs and website leads will post here."}' "$url")
           echo "Slack replied $code: $(cat /tmp/out)"
