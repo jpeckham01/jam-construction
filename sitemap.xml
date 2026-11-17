@@ -2,4 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 <url><loc>https://jamconstructionmd.com/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/"/></url>
 <url><loc>https://jamconstructionmd.com/es/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/"/><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/"/></url>
+<url><loc>https://jamconstructionmd.com/privacy/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/privacy/"/><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/privacidad/"/></url>
+<url><loc>https://jamconstructionmd.com/es/privacidad/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/privacidad/"/><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/privacy/"/></url>
+<url><loc>https://jamconstructionmd.com/terms/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/terms/"/><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/terminos/"/></url>
+<url><loc>https://jamconstructionmd.com/es/terminos/</loc><lastmod>2026-11-17</lastmod><xhtml:link rel="alternate" hreflang="es" href="https://jamconstructionmd.com/es/terminos/"/><xhtml:link rel="alternate" hreflang="en" href="https://jamconstructionmd.com/terms/"/></url>
 </urlset>
