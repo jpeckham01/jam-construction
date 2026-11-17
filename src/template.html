@@ -78,6 +78,11 @@
   .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
   .chip{border:1px solid var(--line);background:var(--paper);padding:8px 16px;border-radius:999px;font:inherit;font-size:.9rem;font-weight:500;cursor:pointer;color:var(--ink-2)}
   .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pager{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:28px}
+  .pager:empty{display:none}
+  .pager button{border:1px solid var(--line);background:var(--paper);min-width:44px;height:44px;padding:0 14px;border-radius:999px;font:inherit;font-size:.95rem;font-weight:600;cursor:pointer;color:var(--ink-2)}
+  .pager button[aria-current="page"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .pager button:disabled{opacity:.35;cursor:default}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px}
   .proj{border-radius:var(--radius);overflow:hidden;background:var(--paper);border:1px solid var(--line);cursor:pointer;text-align:left;font:inherit;color:inherit;padding:0;display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
   .proj:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
@@ -220,6 +225,7 @@
       </div>
       <div class="filters" id="filters" role="group"></div>
       <div class="grid" id="grid"></div>
+      <nav class="pager" id="pager" aria-label="Pages"></nav>
     </div>
   </section>
 
@@ -319,6 +325,7 @@ const TEXT = {
     b1:"Free estimates", b2:"Se habla español", b3:"Competitive pricing",
     svcH:"What we do", svcP:"Outdoor, hardscape and interior projects for homes, built to last.",
     workH:"Recent jobs", workP:"Recent projects. Tap a job to see all the photos.",
+    newer:"‹ Newer", older:"Older ›", pageWord:"Page", pagesLabel:"Gallery pages",
     all:"All", photos:"photos", newTag:"Latest", viewPhotos:"View photos →", viewPhoto:"View photo →", watchVideo:"Watch video →", videoTag:"Video", soon:"PHOTOS COMING SOON",
     aboutH:"Local, owner-operated, accountable.",
     aboutP1:"We're a small team that treats every home like our own. You'll deal directly with the owner from the first walk-through to the final punch list, with no hand-offs and no surprises on the invoice.",
@@ -340,6 +347,7 @@ const TEXT = {
     b1:"Presupuestos gratis", b2:"Se habla español", b3:"Precios competitivos",
     svcH:"Lo que hacemos", svcP:"Proyectos exteriores, de paisajismo e interiores para el hogar, hechos para durar.",
     workH:"Trabajos recientes", workP:"Proyectos recientes. Toque cualquier trabajo para ver todas las fotos.",
+    newer:"‹ Recientes", older:"Anteriores ›", pageWord:"Página", pagesLabel:"Páginas de la galería",
     all:"Todos", photos:"fotos", newTag:"Reciente", viewPhotos:"Ver fotos →", viewPhoto:"Ver foto →", watchVideo:"Ver video →", videoTag:"Video", soon:"FOTOS PRÓXIMAMENTE",
     aboutH:"Locales, atendidos por el dueño, responsables.",
     aboutP1:"Somos un equipo pequeño que trata cada casa como si fuera la nuestra. Usted trata directamente con el dueño desde la primera visita hasta el último detalle, sin intermediarios y sin sorpresas en la factura.",
@@ -389,7 +397,8 @@ $('#yr').textContent = new Date().getFullYear();
 
 const ROOT = document.documentElement.dataset.root || '';
 const lang = document.documentElement.lang === 'es' ? 'es' : 'en';
-let active = 'all', cur = null, pi = 0;
+let active = 'all', cur = null, pi = 0, page = 1;
+const PER_PAGE = 12; // jobs per gallery page
 const T = k => TEXT[lang][k];
 
 function renderStatic(){
@@ -423,7 +432,11 @@ function renderFilters(){
 }
 
 function renderGrid(){
-  $('#grid').innerHTML = PROJECTS.map((p,i) => ({p,i})).filter(x => active==='all' || x.p.c===active).map(({p,i}) => {
+  const list = PROJECTS.map((p,i) => ({p,i})).filter(x => active==='all' || x.p.c===active);
+  const pages = Math.max(1, Math.ceil(list.length / PER_PAGE));
+  page = Math.min(page, pages);
+  renderPager(pages);
+  $('#grid').innerHTML = list.slice((page-1)*PER_PAGE, page*PER_PAGE).map(({p,i}) => {
     const n = p.photos.length, feat = p.featured && active==='all', vid = !!p.video;
     const img = vid
       ? `<img src="${esc(ROOT + p.poster)}" alt="${esc(altOf(p,0))}" loading="lazy"><span class="play" aria-hidden="true"><svg width="26" height="26" viewBox="0 0 24 24" fill="#fff"><path d="M8 5.5v13l11-6.5z"/></svg></span><span class="count">${T('videoTag')}</span>`
@@ -439,9 +452,18 @@ function renderGrid(){
   }).join('');
 }
 
+function renderPager(pages){
+  if (pages < 2) { $('#pager').innerHTML = ''; return; }
+  const nums = Array.from({length: pages}, (_, k) => k + 1)
+    .map(k => `<button data-p="${k}" ${k===page?'aria-current="page"':''} aria-label="${T('pageWord')} ${k}">${k}</button>`).join('');
+  $('#pager').setAttribute('aria-label', T('pagesLabel'));
+  $('#pager').innerHTML = `<button data-p="${page-1}" ${page===1?'disabled':''}>${T('newer')}</button>${nums}<button data-p="${page+1}" ${page===pages?'disabled':''}>${T('older')}</button>`;
+}
+
 function renderAll(){ renderStatic(); renderServices(); renderFilters(); renderGrid(); if (cur!==null && $('#lb').classList.contains('open')) show(); }
 
-$('#filters').addEventListener('click', e => { const b = e.target.closest('.chip'); if(!b) return; active = b.dataset.c; renderFilters(); renderGrid(); });
+$('#filters').addEventListener('click', e => { const b = e.target.closest('.chip'); if(!b) return; active = b.dataset.c; page = 1; renderFilters(); renderGrid(); });
+$('#pager').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if(!b || b.disabled) return; page = +b.dataset.p; renderGrid(); $('#work').scrollIntoView({behavior:'smooth'}); });
 
 /* Lightbox */
 function show(){

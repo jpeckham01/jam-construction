@@ -27,7 +27,7 @@ if (API_KEY) {
     `spaces/line breaks/odd characters inside: ${bad.length}${bad.length ? " (codes " + [...new Set(bad.map((c) => c.charCodeAt(0)))].join(",") + ")" : ""}`);
 }
 const CATS = ["stone", "pave", "fence", "exterior", "build", "interior"];
-const MAX_JOBS = Number(process.env.MAX_JOBS) || 24; // jobs shown in the gallery, featured included
+const MAX_JOBS = Number(process.env.MAX_JOBS) || 48; // jobs shown in the gallery, featured included
 
 const jobsPath = "data/jobs.json";
 const jobs = JSON.parse(readFileSync(jobsPath, "utf8"));
