@@ -20,6 +20,12 @@ const SITE = process.env.SITE_URL || "https://jamconstructionmd.com/";
 const MODEL = process.env.AI_MODEL || "claude-sonnet-5-5";
 // Pasted keys often carry a stray newline, space or quotes; strip them so the request header is valid.
 const API_KEY = (process.env.ANTHROPIC_API_KEY || "").trim().replace(/^["']|["']$/g, "");
+if (API_KEY) {
+  // Describe (never print) the key, so a bad paste is easy to spot in the run log.
+  const bad = [...API_KEY].filter((c) => c.charCodeAt(0) < 33 || c.charCodeAt(0) > 126);
+  console.log(`AI key check: ${API_KEY.length} chars, starts with "sk-ant-": ${API_KEY.startsWith("sk-ant-")}, ` +
+    `spaces/line breaks/odd characters inside: ${bad.length}${bad.length ? " (codes " + [...new Set(bad.map((c) => c.charCodeAt(0)))].join(",") + ")" : ""}`);
+}
 const CATS = ["stone", "pave", "fence", "exterior", "build", "interior"];
 const MAX_JOBS = Number(process.env.MAX_JOBS) || 24; // jobs shown in the gallery, featured included
 
