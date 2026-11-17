@@ -23,8 +23,8 @@ Website for Jorge Mercado's JAM Construction Services LLC (stone walls, stairs, 
    commits, publishes to GitHub Pages, then `scripts/notify.mjs` texts Jorge the link and sends the admin a heads-up.
 4. "BORRAR" within 24 hours removes the newest texted-in job.
 
-Secrets: Worker → `TWILIO_AUTH_TOKEN`, `GITHUB_TOKEN`. GitHub repo → secrets `ANTHROPIC_API_KEY`, `TWILIO_ACCOUNT_SID`,
-`TWILIO_AUTH_TOKEN`; variables `TWILIO_FROM` (the Twilio number), `ADMIN_NUMBER`.
+Secrets: Worker → `TWILIO_AUTH_TOKEN`, `GITHUB_TOKEN`. GitHub repo → secrets `ANTHROPIC_API_KEY`,
+`TWILIO_AUTH_TOKEN`; variables `TWILIO_ACCOUNT_SID`, `TWILIO_FROM` (the Twilio number), `ADMIN_NUMBER`.
 Jobs are in `data/jobs.json` (newest first; `featured` jobs always show first).
 
 ## Custom domain cutover (jamconstructionmd.com)
