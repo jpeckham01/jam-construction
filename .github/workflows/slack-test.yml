@@ -1,0 +1,19 @@
+name: Slack test
+# Run by hand (Actions tab → Slack test → Run workflow) to check SLACK_WEBHOOK_URL.
+on: workflow_dispatch
+permissions: {}
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Post a test message
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          url="$(printf '%s' "$SLACK_WEBHOOK_URL" | tr -d '[:space:]')"
+          if [ -z "$url" ]; then echo "SLACK_WEBHOOK_URL is not set"; exit 1; fi
+          echo "Webhook looks like: ${url:0:34}... (${#url} chars)"
+          code=$(curl -s -o /tmp/out -w '%{http_code}' -X POST -H 'Content-Type: application/json' \
+            --data '{"text":":white_check_mark: JAM Construction alerts are connected. New jobs and website leads will post here."}' "$url")
+          echo "Slack replied $code: $(cat /tmp/out)"
+          [ "$code" = "200" ]
