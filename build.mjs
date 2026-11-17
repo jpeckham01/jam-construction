@@ -32,7 +32,11 @@ const PAGES = {
 };
 
 const attr = (s) => s.replace(/&/g, "&amp;").replace(/"/g, "&quot;").replace(/</g, "&lt;");
-const template = readFileSync("src/template.html", "utf8");
+// Jobs: data/jobs.json, newest first. Featured jobs are always shown first.
+const jobs = JSON.parse(readFileSync("data/jobs.json", "utf8"));
+const ordered = [...jobs.filter((j) => j.featured), ...jobs.filter((j) => !j.featured)];
+const jobsJs = JSON.stringify(ordered).replace(/</g, "\\u003c");
+const template = readFileSync("src/template.html", "utf8").replace("/*JOBS*/[]/*END JOBS*/", jobsJs);
 
 function seoHead(lang) {
   const p = PAGES[lang];

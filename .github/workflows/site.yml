@@ -1,0 +1,77 @@
+# Builds and publishes jamconstructionmd.com on every push to main.
+# When the Cloudflare Worker drops a texted-in job into inbox/, this also turns it into a gallery entry
+# and texts Jorge (and the admin) once the update is live.
+name: Build and publish site
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write   # commit the new job + photos back to main
+  pages: write
+  id-token: write
+
+concurrency:
+  group: site
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # always the latest main, so queued runs see each other's commits
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Turn texted-in jobs into gallery entries
+        id: inbox
+        run: node scripts/process-inbox.mjs
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+
+      - name: Build pages
+        run: npm run build
+
+      - name: Save new jobs and photos to the repo
+        run: |
+          git config user.name "jam-site-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if ! git diff --cached --quiet; then
+            git commit -m "Site update from Jorge's text"
+            git push
+          fi
+
+      - name: Collect site files
+        run: |
+          mkdir _site
+          cp -r index.html es photos favicon.svg CNAME robots.txt sitemap.xml _site/
+
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+      - id: deploy
+        uses: actions/deploy-pages@v4
+
+      - name: Text Jorge that it's live
+        if: steps.inbox.outputs.notify != '' && steps.inbox.outputs.notify != '[]'
+        run: node scripts/notify.mjs
+        env:
+          NOTIFY: ${{ steps.inbox.outputs.notify }}
+          TWILIO_ACCOUNT_SID: ${{ secrets.TWILIO_ACCOUNT_SID }}
+          TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
+          TWILIO_FROM: ${{ vars.TWILIO_FROM }}
+          ADMIN_NUMBER: ${{ vars.ADMIN_NUMBER }}

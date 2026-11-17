@@ -2,6 +2,11 @@
   "name": "jam-construction-site",
   "private": true,
   "type": "module",
-  "scripts": { "build": "node build.mjs" },
-  "devDependencies": { "jsdom": "^26.0.0" }
+  "scripts": {
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "jsdom": "^26.0.0",
+    "sharp": "^0.35.5"
+  }
 }

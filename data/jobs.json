@@ -1,0 +1,285 @@
+[
+  {
+    "c": "stone",
+    "loc": "Cockeysville, MD",
+    "featured": true,
+    "title": {
+      "en": "Curved dry-stack stone garden wall",
+      "es": "Muro curvo de piedra apilada en seco"
+    },
+    "note": {
+      "en": "A hand-built dry-stack stone wall that sweeps around the front planting bed and ties into the home's existing stone foundation. Each course was laid and fitted by hand, with no mortar, then finished with a wide natural flagstone cap cut to follow the curve. The result holds back the bed, defines the walkway and matches the character of the house.",
+      "es": "Un muro de piedra apilada en seco, construido a mano, que rodea la jardinera del frente y se une a la base de piedra existente de la casa. Cada hilada se colocó y ajustó a mano, sin mortero, y se terminó con una amplia cubierta de laja natural cortada para seguir la curva. El resultado contiene la jardinera, define el camino y combina con el carácter de la casa."
+    },
+    "alts": {
+      "en": [
+        "Curved dry-stacked stone garden wall with a natural flagstone cap in front of a stone house in Cockeysville, MD",
+        "Dry-stacked stone wall curving along a front walkway in Cockeysville, MD",
+        "Long dry-stacked stone garden wall with a natural flagstone cap in Cockeysville, MD"
+      ],
+      "es": [
+        "Muro curvo de piedra apilada en seco con cubierta de laja natural frente a una casa de piedra en Cockeysville, MD",
+        "Muro de piedra apilada en seco que sigue la curva de un camino de entrada en Cockeysville, MD",
+        "Muro largo de piedra apilada en seco con cubierta de laja natural en Cockeysville, MD"
+      ]
+    },
+    "photos": [
+      "photos/stone-wall-1.jpg",
+      "photos/stone-wall-2.jpg",
+      "photos/stone-wall-3.jpg"
+    ]
+  },
+  {
+    "c": "pave",
+    "loc": "",
+    "title": {
+      "en": "Flagstone path & paver fire pit patio",
+      "es": "Camino de laja y patio de adoquín con fogata"
+    },
+    "note": {
+      "en": "A finished backyard: large natural flagstone stepping stones set into the lawn lead out to a round paver patio built around a stone fire pit, with a river-rock bed alongside.",
+      "es": "Un patio trasero terminado: grandes piedras de laja natural colocadas en el césped llevan a un patio redondo de adoquines alrededor de una fogata de piedra, con una cama de piedras de río al lado."
+    },
+    "alts": {
+      "en": [
+        "Natural flagstone stepping stones in a lawn leading to a round paver patio with a stone fire pit and rocking chairs"
+      ],
+      "es": [
+        "Piedras de laja natural en el césped que llevan a un patio redondo de adoquines con fogata de piedra y mecedoras"
+      ]
+    },
+    "photos": [
+      "photos/flagstone-path-1.jpg"
+    ]
+  },
+  {
+    "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Flagstone patio with stone fire pit",
+      "es": "Patio de laja con fogata de piedra"
+    },
+    "note": {
+      "en": "A wooded backyard gathering spot: a natural flagstone patio laid around a round stacked-stone fire pit, framed by a curved dry-stack seating wall with a flagstone cap and large boulders set at the ends. Shown as the site was being finished.",
+      "es": "Un lugar de reunión en un patio trasero arbolado: un patio de laja natural alrededor de una fogata redonda de piedra apilada, rodeado por un muro curvo de piedra apilada en seco para sentarse, con cubierta de laja y grandes rocas en los extremos. Se muestra mientras se terminaba la obra."
+    },
+    "alts": {
+      "en": [
+        "Flagstone patio with a round stacked-stone fire pit and a curved stone seating wall in a wooded backyard"
+      ],
+      "es": [
+        "Patio de laja con fogata redonda de piedra apilada y muro curvo de piedra para sentarse en un patio arbolado"
+      ]
+    },
+    "photos": [
+      "photos/fire-pit-1.jpg"
+    ]
+  },
+  {
+    "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Natural stone steps & boulder wall",
+      "es": "Escalones de piedra natural y muro de rocas"
+    },
+    "note": {
+      "en": "Heavy natural stone slab steps climbing a slope beside the garage, with a stacked boulder retaining wall alongside to hold back the hillside. Each slab is set on a compacted gravel base so the steps stay solid and level. Shown during construction.",
+      "es": "Escalones de grandes losas de piedra natural que suben una pendiente junto al garaje, con un muro de contención de rocas apiladas al lado para sostener el terreno. Cada losa se asienta sobre una base de grava compactada para que los escalones queden firmes y nivelados. Se muestra durante la construcción."
+    },
+    "alts": {
+      "en": [
+        "Natural stone slab stairs and a stacked boulder retaining wall beside a garage, under construction"
+      ],
+      "es": [
+        "Escaleras de losas de piedra natural y muro de contención de rocas apiladas junto a un garaje, en construcción"
+      ]
+    },
+    "photos": [
+      "photos/stone-steps-1.jpg"
+    ]
+  },
+  {
+    "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Natural stone veneer porch foundation",
+      "es": "Base de porche revestida en piedra natural"
+    },
+    "note": {
+      "en": "Natural stone veneer set in mortar around the raised foundation of a front porch, with a stone cap laid across the top and a solid base for the porch posts. Shown while the house was still under construction.",
+      "es": "Revestimiento de piedra natural asentado con mortero alrededor de la base elevada de un porche, con una cubierta de piedra en la parte superior y una base firme para los postes. Se muestra mientras la casa aún estaba en construcción."
+    },
+    "alts": {
+      "en": [
+        "Mortared natural stone veneer on a raised front porch foundation with a stone cap, at a house under construction"
+      ],
+      "es": [
+        "Revestimiento de piedra natural con mortero en la base elevada de un porche, con cubierta de piedra, en una casa en construcción"
+      ]
+    },
+    "photos": [
+      "photos/stone-veneer-1.jpg"
+    ]
+  },
+  {
+    "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Lighted stone stairway",
+      "es": "Escalera de piedra iluminada"
+    },
+    "note": {
+      "en": "A long outdoor stairway of stone steps between stone block retaining walls, with lights set into each step so it's safe to use after dark.",
+      "es": "Una larga escalera exterior de piedra entre muros de contención de bloques de piedra, con luces empotradas en cada escalón para usarla con seguridad de noche."
+    },
+    "alts": {
+      "en": [
+        "Outdoor stone stairway at night with lights set into each step between stone block walls"
+      ],
+      "es": [
+        "Escalera exterior de piedra de noche con luces en cada escalón entre muros de bloques de piedra"
+      ]
+    },
+    "photos": [
+      "photos/lit-stairs-1.jpg"
+    ]
+  },
+  {
+    "c": "exterior",
+    "loc": "",
+    "title": {
+      "en": "Whole-house sheathing & siding prep",
+      "es": "Revestimiento y preparación para siding en toda la casa"
+    },
+    "note": {
+      "en": "A house getting ready for new siding: new ZIP System sheathing with taped seams on every wall, windows set in place, and vertical furring strips fastened over the sheathing to create a rain-screen gap behind the finished siding. Shown in progress.",
+      "es": "Una casa que se prepara para siding nuevo: paneles ZIP System nuevos con juntas selladas en todas las paredes, ventanas instaladas y listones verticales fijados sobre los paneles para dejar una cámara de ventilación detrás del revestimiento final. Se muestra durante la obra."
+    },
+    "alts": {
+      "en": [
+        "House exterior with ZIP System sheathing, taped seams and furring strips ready for new siding"
+      ],
+      "es": [
+        "Exterior de una casa con paneles ZIP System, juntas selladas y listones listos para revestimiento nuevo"
+      ]
+    },
+    "photos": [
+      "photos/siding-1.jpg"
+    ]
+  },
+  {
+    "c": "pave",
+    "loc": "",
+    "title": {
+      "en": "Paver pool deck",
+      "es": "Terraza de adoquín para piscina"
+    },
+    "note": {
+      "en": "A full paver surround for a new in-ground pool: a multi-size paver pattern laid around all four sides, with a contrasting soldier-course border and a walkway leading out to the yard. Shown during installation.",
+      "es": "Un piso completo de adoquines alrededor de una piscina nueva: un patrón de adoquines de varios tamaños en los cuatro lados, con un borde de contraste y un camino hacia el jardín. Se muestra durante la instalación."
+    },
+    "alts": {
+      "en": [
+        "Paver pool deck with a contrasting border being installed around a new in-ground pool"
+      ],
+      "es": [
+        "Terraza de adoquines con borde de contraste en instalación alrededor de una piscina nueva"
+      ]
+    },
+    "photos": [
+      "photos/pool-deck-1.jpg"
+    ]
+  },
+  {
+    "c": "fence",
+    "loc": "",
+    "title": {
+      "en": "Backyard patio with privacy screen & pergola",
+      "es": "Patio con panel de privacidad y pérgola"
+    },
+    "note": {
+      "en": "A backyard retreat in two parts: a paver patio with a raised border, and a custom wood structure around it with horizontal-slat privacy walls and a slatted pergola roof for shade and privacy.",
+      "es": "Un espacio en el patio trasero en dos partes: un patio de adoquines con borde elevado y una estructura de madera a la medida con paredes de privacidad de tablas horizontales y un techo de pérgola de listones para dar sombra y privacidad."
+    },
+    "alts": {
+      "en": [
+        "Backyard paver patio with horizontal-slat wood privacy walls and a slatted pergola roof"
+      ],
+      "es": [
+        "Patio de adoquines con paredes de privacidad de tablas horizontales y techo de pérgola de listones"
+      ]
+    },
+    "photos": [
+      "photos/patio-screen-1.jpg"
+    ]
+  },
+  {
+    "c": "pave",
+    "loc": "",
+    "title": {
+      "en": "Front entry paver walkway",
+      "es": "Camino de adoquín en la entrada"
+    },
+    "note": {
+      "en": "A new paver entry for a brick home. The ground was excavated, edged and built up with a compacted gravel base, and the pattern was laid out from a circular medallion centered on the front doors. Shown mid-installation.",
+      "es": "Una nueva entrada de adoquín para una casa de ladrillo. Se excavó, se colocaron bordes y se construyó una base de grava compactada, y el diseño parte de un medallón circular centrado en la puerta principal. Se muestra durante la instalación."
+    },
+    "alts": {
+      "en": [
+        "Paver walkway with a circular medallion being laid on a compacted gravel base at the front entry of a brick home"
+      ],
+      "es": [
+        "Camino de adoquines con medallón circular sobre una base de grava compactada en la entrada de una casa de ladrillo"
+      ]
+    },
+    "photos": [
+      "photos/walkway-1.jpg"
+    ]
+  },
+  {
+    "c": "pave",
+    "loc": "",
+    "title": {
+      "en": "Concrete sidewalk & split-rail fence",
+      "es": "Acera de concreto y cerca de rieles"
+    },
+    "note": {
+      "en": "A new concrete sidewalk along the street side of a home, with a wood split-rail fence set beside it to frame the yard.",
+      "es": "Una acera de concreto nueva junto a la calle, con una cerca de madera de rieles a un lado para enmarcar el jardín."
+    },
+    "alts": {
+      "en": [
+        "New concrete sidewalk beside a street with a wood split-rail fence along the yard"
+      ],
+      "es": [
+        "Acera de concreto nueva junto a la calle con una cerca de madera de rieles a lo largo del jardín"
+      ]
+    },
+    "photos": [
+      "photos/sidewalk-fence-1.jpg"
+    ]
+  },
+  {
+    "c": "fence",
+    "loc": "",
+    "title": {
+      "en": "Property-line fence installation",
+      "es": "Instalación de cerca en el lindero"
+    },
+    "note": {
+      "en": "Layout and post holes for a long fence run along a property line, with every post location measured and marked before digging so the finished fence runs straight and evenly spaced.",
+      "es": "Trazado y hoyos para los postes de una cerca larga en el lindero de la propiedad. Cada poste se midió y marcó antes de excavar para que la cerca quede recta y con el espaciado uniforme."
+    },
+    "alts": {
+      "en": [
+        "Measured post holes and layout boards for a long property-line fence"
+      ],
+      "es": [
+        "Hoyos para postes medidos y tablas de trazado para una cerca larga en el lindero de la propiedad"
+      ]
+    },
+    "photos": [
+      "photos/fence-1.jpg"
+    ]
+  }
+]

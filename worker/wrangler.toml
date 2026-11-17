@@ -1,0 +1,22 @@
+# Cloudflare Worker that receives Jorge's texts from Twilio.
+# Deploy from the Cloudflare dashboard (paste src/index.js) or with `npx wrangler deploy` from this folder.
+name = "jam-sms"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+
+[triggers]
+crons = ["*/2 * * * *"]   # finish jobs (LISTO or 15 quiet minutes)
+
+[[kv_namespaces]]
+binding = "DRAFTS"
+id = "REPLACE_WITH_KV_NAMESPACE_ID"
+
+[vars]
+GITHUB_REPO = "jpeckham01/jam-construction"
+# Set these in the dashboard (Settings → Variables and Secrets), not here – this repo is public:
+#   ALLOWED_NUMBERS     – comma-separated, e.g. Jorge's cell plus an admin number for testing
+#   TWILIO_ACCOUNT_SID  – Twilio console → Account info
+
+# Secrets (set in the dashboard under Settings → Variables and Secrets, or `npx wrangler secret put NAME`):
+#   TWILIO_AUTH_TOKEN   – Twilio console → Account info
+#   GITHUB_TOKEN        – fine-grained token, repository jam-construction only, Contents: Read and write
