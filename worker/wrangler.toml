@@ -3,13 +3,14 @@
 name = "jam-sms"
 main = "src/index.js"
 compatibility_date = "2026-11-01"
+keep_vars = true   # keep ALLOWED_NUMBERS / TWILIO_ACCOUNT_SID set in the dashboard
 
 [triggers]
 crons = ["*/2 * * * *"]   # finish jobs (LISTO or 15 quiet minutes)
 
 [[kv_namespaces]]
 binding = "DRAFTS"
-id = "REPLACE_WITH_KV_NAMESPACE_ID"
+id = "7224d022579f4e959af88f4f0708bc96"   # jam-sms-drafts
 
 [vars]
 GITHUB_REPO = "jpeckham01/jam-construction"
