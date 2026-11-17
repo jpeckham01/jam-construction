@@ -10,6 +10,9 @@ import { JSDOM } from "jsdom";
 
 const BASE = "https://jpeckham01.github.io/jam-construction/";
 const PHONE = "(443) 901-8869";
+// Google review link from Jorge's Google Business Profile ("Ask for reviews" → copy link).
+// Leave empty and the review section is left out of the site.
+const REVIEW_URL = process.env.REVIEW_URL ?? "";
 
 const PAGES = {
   en: {
@@ -60,13 +63,15 @@ for (const lang of Object.keys(PAGES)) {
     .replaceAll("{{LANG}}", lang)
     .replaceAll("{{ROOT}}", p.root)
     .replaceAll("{{HOME}}", p.home)
-    .replaceAll("{{BASE}}", BASE);
+    .replaceAll("{{BASE}}", BASE)
+    .replaceAll("{{REVIEW_URL}}", attr(REVIEW_URL));
 
   // Run the page's scripts so the text, services and gallery are rendered into the DOM.
   const dom = new JSDOM(html, { runScripts: "dangerously", url: BASE + p.path });
   const doc = dom.window.document;
   if (!doc.querySelector("#grid .proj")) throw new Error(`${lang}: gallery did not render`);
   if (doc.querySelector("[data-t]:empty")) throw new Error(`${lang}: some text did not render`);
+  if (!REVIEW_URL) doc.querySelector("[data-review]")?.remove();
 
   let out = "<!DOCTYPE html>\n" + doc.documentElement.outerHTML;
   out = out.replace("<!--SEO-->", seoHead(lang));
