@@ -8,7 +8,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { JSDOM } from "jsdom";
 
-const BASE = "https://jpeckham01.github.io/jam-construction/";
+const BASE = "https://jamconstructionmd.com/";
 const PHONE = "(443) 901-8869";
 // Google review link from Jorge's Google Business Profile ("Ask for reviews" → copy link).
 // Leave empty and the review section is left out of the site.
