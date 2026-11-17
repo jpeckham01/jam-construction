@@ -1,5 +1,33 @@
 [
   {
+    "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Recent project",
+      "es": "Proyecto reciente"
+    },
+    "note": {
+      "en": "",
+      "es": ""
+    },
+    "alts": {
+      "en": [
+        "Recent project"
+      ],
+      "es": [
+        "Proyecto reciente"
+      ]
+    },
+    "photos": [
+      "photos/sms-20261117-042945-1.jpg"
+    ],
+    "source": "sms",
+    "added": "2026-11-17T04:34:59.568Z",
+    "smsId": "20261117-042945",
+    "needsWriteUp": true,
+    "smsTexts": []
+  },
+  {
     "c": "fence",
     "loc": "Hunt Valley, MD",
     "title": {
