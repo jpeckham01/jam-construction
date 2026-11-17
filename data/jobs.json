@@ -1,21 +1,21 @@
 [
   {
-    "c": "stone",
-    "loc": "",
+    "c": "fence",
+    "loc": "Hunt Valley, MD",
     "title": {
-      "en": "Recent project",
-      "es": "Proyecto reciente"
+      "en": "Wood pergola over a backyard deck",
+      "es": "Pérgola de madera sobre un deck"
     },
     "note": {
-      "en": "",
-      "es": ""
+      "en": "A wood pergola over a raised backyard deck, with heavy beams and evenly spaced rafters that frame the outdoor dining area and add filtered shade.",
+      "es": "Una pérgola de madera sobre un deck elevado en el patio trasero, con vigas gruesas y travesaños parejos que enmarcan el comedor exterior y dan sombra filtrada."
     },
     "alts": {
       "en": [
-        "Recent project"
+        "Wood pergola with heavy beams over a raised deck with an outdoor dining table in Hunt Valley, MD"
       ],
       "es": [
-        "Proyecto reciente"
+        "Pérgola de madera con vigas gruesas sobre un deck elevado con mesa de comedor exterior en Hunt Valley, MD"
       ]
     },
     "photos": [
@@ -23,11 +23,7 @@
     ],
     "source": "sms",
     "added": "2026-11-17T04:15:02.917Z",
-    "smsId": "20261117-041022",
-    "needsWriteUp": true,
-    "smsTexts": [
-      "Pergola in hunt valley"
-    ]
+    "smsId": "20261117-041022"
   },
   {
     "c": "stone",
