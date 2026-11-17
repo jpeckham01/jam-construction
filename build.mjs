@@ -19,14 +19,14 @@ const PAGES = {
   en: {
     out: "index.html", root: "", home: "./", path: "", locale: "en_US", privacy: "privacy/", terms: "terms/",
     title: "Stone Walls, Patios & Hardscaping in Baltimore County | JAM Construction",
-    description: "Stone walls, stone stairs, paver patios, walkways, pool decks, fences, decks, garages and outdoor fireplaces in Baltimore County, MD. Competitive prices and free estimates. Se habla español.",
+    description: "Stone walls, stone stairs, paver patios, walkways, pool decks, fences, decks, garages, outdoor fireplaces, bathrooms, basements and waterproofing in Baltimore County, MD. Competitive prices and free estimates. Se habla español.",
     ogTitle: "JAM Construction Services – Stone Walls, Patios & Hardscaping in Baltimore County",
     ogDescription: `Stone walls, patios, walkways, pool decks, fences, decks, garages and outdoor fireplaces. Competitive prices, free estimates – text Jorge at ${PHONE}.`,
   },
   es: {
     out: "es/index.html", root: "../", home: "../", path: "es/", locale: "es_US", privacy: "privacidad/", terms: "terminos/",
     title: "Muros de piedra, patios y paisajismo en el condado de Baltimore | JAM Construction",
-    description: "Muros de piedra, escaleras de piedra, patios de adoquín, caminos, terrazas de piscina, cercas, decks, garajes y chimeneas al aire libre en el condado de Baltimore, MD. Precios competitivos y presupuestos gratis.",
+    description: "Muros de piedra, escaleras de piedra, patios de adoquín, caminos, terrazas de piscina, cercas, decks, garajes, chimeneas al aire libre, baños, sótanos e impermeabilización en el condado de Baltimore, MD. Precios competitivos y presupuestos gratis.",
     ogTitle: "JAM Construction Services – Muros de piedra, patios y paisajismo en el condado de Baltimore",
     ogDescription: `Muros de piedra, patios, caminos, terrazas de piscina, cercas, decks, garajes y chimeneas al aire libre. Precios competitivos y presupuestos gratis – escriba a Jorge al ${PHONE}.`,
   },

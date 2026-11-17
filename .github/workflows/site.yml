@@ -77,3 +77,4 @@ jobs:
           TWILIO_AUTH_TOKEN: ${{ secrets.TWILIO_AUTH_TOKEN }}
           TWILIO_FROM: ${{ vars.TWILIO_FROM }}
           ADMIN_NUMBER: ${{ vars.ADMIN_NUMBER }}
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
