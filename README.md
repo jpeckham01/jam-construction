@@ -29,6 +29,13 @@ Secrets: Worker → `TWILIO_AUTH_TOKEN`, `GITHUB_TOKEN`. GitHub repo → secrets
 `TWILIO_AUTH_TOKEN`; variables `TWILIO_ACCOUNT_SID`, `TWILIO_FROM` (the Twilio number), `ADMIN_NUMBER`.
 Jobs are in `data/jobs.json` (newest first; `featured` jobs always show first).
 
+
+### Same job, more photos
+Photos sent within 24 hours of the last texted-in post are compared with it by the AI. If they show the same job,
+they are added to that post (which moves back to the top and gets a fresh write-up) instead of becoming a new post.
+If the AI can't be reached, photos sent within 2 hours of the last post are added to it. To force a new post,
+start the text with **NUEVO** (or NEW). Tune with the `MERGE_HOURS` and `FALLBACK_MERGE_HOURS` variables.
+
 ## Custom domain cutover (jamconstructionmd.com)
 1. In `build.mjs`, set `BASE = "https://jamconstructionmd.com/"` and run `npm run build`.
 2. Add a `CNAME` file containing `jamconstructionmd.com`.
