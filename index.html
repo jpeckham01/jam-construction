@@ -111,6 +111,10 @@
   /* About */
   .about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
   .about p{color:var(--ink-2);margin-bottom:14px;font-size:1.03rem}
+  .owner{display:flex;align-items:center;gap:18px;margin:26px 0 0}
+  .owner img{width:132px;height:132px;border-radius:50%;object-fit:cover;flex:none;border:4px solid var(--card);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+  .owner b{display:block;font-family:"Fraunces",Georgia,serif;font-size:1.35rem;line-height:1.2}
+  .owner span{display:block;color:var(--ink-2);font-size:.95rem;margin-top:2px}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
   .stat b{display:block;font-family:"Fraunces",serif;font-size:1.8rem;color:var(--deep)}
@@ -239,7 +243,7 @@
         <h2 data-t="workH">Recent jobs</h2>
         <p data-t="workP">Recent projects. Tap a job to see all the photos.</p>
       </div>
-      <div class="filters" id="filters" role="group" aria-label="Filter projects"><button class="chip" aria-pressed="true" data-c="all">All</button><button class="chip" aria-pressed="false" data-c="stone">Stone Walls</button><button class="chip" aria-pressed="false" data-c="exterior">Siding &amp; Exteriors</button><button class="chip" aria-pressed="false" data-c="pave">Patios &amp; Walkways</button><button class="chip" aria-pressed="false" data-c="fence">Fences &amp; Outdoor Structures</button></div>
+      <div class="filters" id="filters" role="group" aria-label="Filter projects"><button class="chip" aria-pressed="true" data-c="all">All</button><button class="chip" aria-pressed="false" data-c="stone">Stone Walls</button><button class="chip" aria-pressed="false" data-c="pave">Patios &amp; Walkways</button><button class="chip" aria-pressed="false" data-c="exterior">Siding &amp; Exteriors</button><button class="chip" aria-pressed="false" data-c="fence">Fences &amp; Outdoor Structures</button></div>
       <div class="grid" id="grid"><button class="proj featured" data-i="0">
       <div class="proj-img"><img src="photos/stone-wall-1.jpg" alt="Curved dry-stacked stone garden wall with a natural flagstone cap in front of a stone house in Cockeysville, MD" loading="eager"><span class="new">Latest</span><span class="count">3 photos</span></div>
       <div class="proj-body">
@@ -248,55 +252,76 @@
         <p class="proj-desc">A hand-built dry-stack stone wall that sweeps around the front planting bed and ties into the home's existing stone foundation. Each course was laid and fitted by hand, with no mortar, then finished with a wide natural flagstone cap cut to follow the curve. The result holds back the bed, defines the walkway and matches the character of the house.</p><div class="more">View photos →</div>
       </div>
     </button><button class="proj" data-i="1">
+      <div class="proj-img"><img src="photos/flagstone-path-1.jpg" alt="Natural flagstone stepping stones in a lawn leading to a round paver patio with a stone fire pit and rocking chairs" loading="lazy"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Patios &amp; Walkways</div>
+        <h3>Flagstone path &amp; paver fire pit patio</h3>
+        <p class="proj-desc">A finished backyard: large natural flagstone stepping stones set into the lawn lead out to a round paver patio built around a stone fire pit, with a river-rock bed alongside.</p><div class="more">View photo →</div>
+      </div>
+    </button><button class="proj" data-i="2">
       <div class="proj-img"><img src="photos/fire-pit-1.jpg" alt="Flagstone patio with a round stacked-stone fire pit and a curved stone seating wall in a wooded backyard" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Stone Walls</div>
         <h3>Flagstone patio with stone fire pit</h3>
         <p class="proj-desc">A wooded backyard gathering spot: a natural flagstone patio laid around a round stacked-stone fire pit, framed by a curved dry-stack seating wall with a flagstone cap and large boulders set at the ends. Shown as the site was being finished.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="2">
+    </button><button class="proj" data-i="3">
       <div class="proj-img"><img src="photos/stone-steps-1.jpg" alt="Natural stone slab stairs and a stacked boulder retaining wall beside a garage, under construction" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Stone Walls</div>
         <h3>Natural stone steps &amp; boulder wall</h3>
         <p class="proj-desc">Heavy natural stone slab steps climbing a slope beside the garage, with a stacked boulder retaining wall alongside to hold back the hillside. Each slab is set on a compacted gravel base so the steps stay solid and level. Shown during construction.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="3">
+    </button><button class="proj" data-i="4">
       <div class="proj-img"><img src="photos/stone-veneer-1.jpg" alt="Mortared natural stone veneer on a raised front porch foundation with a stone cap, at a house under construction" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Stone Walls</div>
         <h3>Natural stone veneer porch foundation</h3>
         <p class="proj-desc">Natural stone veneer set in mortar around the raised foundation of a front porch, with a stone cap laid across the top and a solid base for the porch posts. Shown while the house was still under construction.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="4">
+    </button><button class="proj" data-i="5">
+      <div class="proj-img"><img src="photos/lit-stairs-1.jpg" alt="Outdoor stone stairway at night with lights set into each step between stone block walls" loading="lazy"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Stone Walls</div>
+        <h3>Lighted stone stairway</h3>
+        <p class="proj-desc">A long outdoor stairway of stone steps between stone block retaining walls, with lights set into each step so it's safe to use after dark.</p><div class="more">View photo →</div>
+      </div>
+    </button><button class="proj" data-i="6">
       <div class="proj-img"><img src="photos/siding-1.jpg" alt="House exterior with ZIP System sheathing, taped seams and furring strips ready for new siding" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Siding &amp; Exteriors</div>
         <h3>Whole-house sheathing &amp; siding prep</h3>
         <p class="proj-desc">A house getting ready for new siding: new ZIP System sheathing with taped seams on every wall, windows set in place, and vertical furring strips fastened over the sheathing to create a rain-screen gap behind the finished siding. Shown in progress.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="5">
+    </button><button class="proj" data-i="7">
       <div class="proj-img"><img src="photos/pool-deck-1.jpg" alt="Paver pool deck with a contrasting border being installed around a new in-ground pool" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Patios &amp; Walkways</div>
         <h3>Paver pool deck</h3>
         <p class="proj-desc">A full paver surround for a new in-ground pool: a multi-size paver pattern laid around all four sides, with a contrasting soldier-course border and a walkway leading out to the yard. Shown during installation.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="6">
+    </button><button class="proj" data-i="8">
       <div class="proj-img"><img src="photos/patio-screen-1.jpg" alt="Backyard paver patio with horizontal-slat wood privacy walls and a slatted pergola roof" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Fences &amp; Outdoor Structures</div>
         <h3>Backyard patio with privacy screen &amp; pergola</h3>
         <p class="proj-desc">A backyard retreat in two parts: a paver patio with a raised border, and a custom wood structure around it with horizontal-slat privacy walls and a slatted pergola roof for shade and privacy.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="7">
+    </button><button class="proj" data-i="9">
       <div class="proj-img"><img src="photos/walkway-1.jpg" alt="Paver walkway with a circular medallion being laid on a compacted gravel base at the front entry of a brick home" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Patios &amp; Walkways</div>
         <h3>Front entry paver walkway</h3>
         <p class="proj-desc">A new paver entry for a brick home. The ground was excavated, edged and built up with a compacted gravel base, and the pattern was laid out from a circular medallion centered on the front doors. Shown mid-installation.</p><div class="more">View photo →</div>
       </div>
-    </button><button class="proj" data-i="8">
+    </button><button class="proj" data-i="10">
+      <div class="proj-img"><img src="photos/sidewalk-fence-1.jpg" alt="New concrete sidewalk beside a street with a wood split-rail fence along the yard" loading="lazy"></div>
+      <div class="proj-body">
+        <div class="proj-tag">Patios &amp; Walkways</div>
+        <h3>Concrete sidewalk &amp; split-rail fence</h3>
+        <p class="proj-desc">A new concrete sidewalk along the street side of a home, with a wood split-rail fence set beside it to frame the yard.</p><div class="more">View photo →</div>
+      </div>
+    </button><button class="proj" data-i="11">
       <div class="proj-img"><img src="photos/fence-1.jpg" alt="Measured post holes and layout boards for a long property-line fence" loading="lazy"></div>
       <div class="proj-body">
         <div class="proj-tag">Fences &amp; Outdoor Structures</div>
@@ -313,6 +338,10 @@
         <div class="sec-head" style="margin-bottom:18px"><h2 data-t="aboutH">Local, owner-operated, accountable.</h2></div>
         <p data-t="aboutP1">We're a small team that treats every home like our own. You'll deal directly with the owner from the first walk-through to the final punch list, with no hand-offs and no surprises on the invoice.</p>
         <p data-t="aboutP2">Every job starts with a clear written estimate and a realistic schedule, and ends with a clean site and a walk-through to make sure you're happy.</p>
+        <figure class="owner">
+          <img src="photos/jorge-portrait.jpg" data-alt="ownerAlt" alt="Illustrated portrait of Jorge Mercado, owner of JAM Construction Services" width="132" height="132" loading="lazy">
+          <figcaption><b>Jorge Mercado</b><span data-t="ownerRole">Owner · Your point of contact from estimate to cleanup</span></figcaption>
+        </figure>
       </div>
       <div class="quote">
         <p data-t="whyH">Why homeowners call JAM</p>
@@ -393,7 +422,8 @@ const TEXT = {
     ctH:"Get a free estimate", ctP:"The fastest way to reach Jorge is a text. Tap below, say what you need, and add a few photos of the area.",
     cPhone:"Call or text", cHours:"Text photos of your project anytime", cEmail:"Email", cEmailSub:"Send photos and a short description",
     cArea:"Service area", cAreaV:"Baltimore County", cLang:"Languages", cLangSub:"We're happy to talk in either language",
-    rights:"All rights reserved.", habla:"Se habla español"
+    rights:"All rights reserved.", habla:"Se habla español",
+    ownerRole:"Owner · Your point of contact from estimate to cleanup", ownerAlt:"Illustrated portrait of Jorge Mercado, owner of JAM Construction Services"
   },
   es:{
     navServices:"Servicios", navWork:"Trabajos", navAbout:"Nosotros", navCta:"Presupuesto gratis",
@@ -412,7 +442,8 @@ const TEXT = {
     ctH:"Pida un presupuesto gratis", ctP:"La forma más rápida de comunicarse con Jorge es por mensaje de texto. Toque abajo, diga lo que necesita y agregue unas fotos del área.",
     cPhone:"Llame o escriba", cHours:"Envíe fotos de su proyecto cuando quiera", cEmail:"Correo electrónico", cEmailSub:"Envíe fotos y una breve descripción",
     cArea:"Área de servicio", cAreaV:"Condado de Baltimore", cLang:"Idiomas", cLangSub:"Con gusto le atendemos en cualquiera de los dos idiomas",
-    rights:"Todos los derechos reservados.", habla:"Se habla español"
+    rights:"Todos los derechos reservados.", habla:"Se habla español",
+    ownerRole:"Dueño · Su contacto desde el presupuesto hasta la limpieza final", ownerAlt:"Retrato ilustrado de Jorge Mercado, dueño de JAM Construction Services"
   }
 };
 
@@ -447,6 +478,15 @@ const PROJECTS = [
     alts:{en:["Curved dry-stacked stone garden wall with a natural flagstone cap in front of a stone house in Cockeysville, MD", "Dry-stacked stone wall curving along a front walkway in Cockeysville, MD", "Long dry-stacked stone garden wall with a natural flagstone cap in Cockeysville, MD"],
           es:["Muro curvo de piedra apilada en seco con cubierta de laja natural frente a una casa de piedra en Cockeysville, MD", "Muro de piedra apilada en seco que sigue la curva de un camino de entrada en Cockeysville, MD", "Muro largo de piedra apilada en seco con cubierta de laja natural en Cockeysville, MD"]},
     photos:["photos/stone-wall-1.jpg","photos/stone-wall-2.jpg","photos/stone-wall-3.jpg"] },
+  { c:"pave", loc:"",
+    title:{en:"Flagstone path & paver fire pit patio", es:"Camino de laja y patio de adoquín con fogata"},
+    note:{
+      en:"A finished backyard: large natural flagstone stepping stones set into the lawn lead out to a round paver patio built around a stone fire pit, with a river-rock bed alongside.",
+      es:"Un patio trasero terminado: grandes piedras de laja natural colocadas en el césped llevan a un patio redondo de adoquines alrededor de una fogata de piedra, con una cama de piedras de río al lado."
+    },
+    alts:{en:["Natural flagstone stepping stones in a lawn leading to a round paver patio with a stone fire pit and rocking chairs"],
+          es:["Piedras de laja natural en el césped que llevan a un patio redondo de adoquines con fogata de piedra y mecedoras"]},
+    photos:["photos/flagstone-path-1.jpg"] },
   { c:"stone", loc:"",
     title:{en:"Flagstone patio with stone fire pit", es:"Patio de laja con fogata de piedra"},
     note:{
@@ -474,6 +514,15 @@ const PROJECTS = [
     alts:{en:["Mortared natural stone veneer on a raised front porch foundation with a stone cap, at a house under construction"],
           es:["Revestimiento de piedra natural con mortero en la base elevada de un porche, con cubierta de piedra, en una casa en construcción"]},
     photos:["photos/stone-veneer-1.jpg"] },
+  { c:"stone", loc:"",
+    title:{en:"Lighted stone stairway", es:"Escalera de piedra iluminada"},
+    note:{
+      en:"A long outdoor stairway of stone steps between stone block retaining walls, with lights set into each step so it's safe to use after dark.",
+      es:"Una larga escalera exterior de piedra entre muros de contención de bloques de piedra, con luces empotradas en cada escalón para usarla con seguridad de noche."
+    },
+    alts:{en:["Outdoor stone stairway at night with lights set into each step between stone block walls"],
+          es:["Escalera exterior de piedra de noche con luces en cada escalón entre muros de bloques de piedra"]},
+    photos:["photos/lit-stairs-1.jpg"] },
   { c:"exterior", loc:"",
     title:{en:"Whole-house sheathing & siding prep", es:"Revestimiento y preparación para siding en toda la casa"},
     note:{
@@ -510,6 +559,15 @@ const PROJECTS = [
     alts:{en:["Paver walkway with a circular medallion being laid on a compacted gravel base at the front entry of a brick home"],
           es:["Camino de adoquines con medallón circular sobre una base de grava compactada en la entrada de una casa de ladrillo"]},
     photos:["photos/walkway-1.jpg"] },
+  { c:"pave", loc:"",
+    title:{en:"Concrete sidewalk & split-rail fence", es:"Acera de concreto y cerca de rieles"},
+    note:{
+      en:"A new concrete sidewalk along the street side of a home, with a wood split-rail fence set beside it to frame the yard.",
+      es:"Una acera de concreto nueva junto a la calle, con una cerca de madera de rieles a un lado para enmarcar el jardín."
+    },
+    alts:{en:["New concrete sidewalk beside a street with a wood split-rail fence along the yard"],
+          es:["Acera de concreto nueva junto a la calle con una cerca de madera de rieles a lo largo del jardín"]},
+    photos:["photos/sidewalk-fence-1.jpg"] },
   { c:"fence", loc:"",
     title:{en:"Property-line fence installation", es:"Instalación de cerca en el lindero"},
     note:{
@@ -534,6 +592,7 @@ const T = k => TEXT[lang][k];
 
 function renderStatic(){
     document.querySelectorAll('[data-t]').forEach(el => { const v = T(el.dataset.t); if (v != null) el.textContent = v; });
+  document.querySelectorAll('[data-alt]').forEach(el => { const v = T(el.dataset.alt); if (v != null) el.alt = v; });
   document.querySelectorAll('.lang a').forEach(a => a.dataset.lang === lang ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
   $('#filters').setAttribute('aria-label', lang==='es' ? 'Filtrar proyectos' : 'Filter projects');
   $('#lbClose').setAttribute('aria-label', lang==='es' ? 'Cerrar' : 'Close');

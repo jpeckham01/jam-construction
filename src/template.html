@@ -99,6 +99,10 @@
   /* About */
   .about{display:grid;grid-template-columns:1.1fr 1fr;gap:48px;align-items:center}
   .about p{color:var(--ink-2);margin-bottom:14px;font-size:1.03rem}
+  .owner{display:flex;align-items:center;gap:18px;margin:26px 0 0}
+  .owner img{width:132px;height:132px;border-radius:50%;object-fit:cover;flex:none;border:4px solid var(--card);box-shadow:0 8px 24px rgba(0,0,0,.14)}
+  .owner b{display:block;font-family:"Fraunces",Georgia,serif;font-size:1.35rem;line-height:1.2}
+  .owner span{display:block;color:var(--ink-2);font-size:.95rem;margin-top:2px}
   .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
   .stat{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
   .stat b{display:block;font-family:"Fraunces",serif;font-size:1.8rem;color:var(--deep)}
@@ -218,6 +222,10 @@
         <div class="sec-head" style="margin-bottom:18px"><h2 data-t="aboutH"></h2></div>
         <p data-t="aboutP1"></p>
         <p data-t="aboutP2"></p>
+        <figure class="owner">
+          <img src="{{ROOT}}photos/jorge-portrait.jpg" data-alt="ownerAlt" alt="" width="132" height="132" loading="lazy">
+          <figcaption><b>Jorge Mercado</b><span data-t="ownerRole"></span></figcaption>
+        </figure>
       </div>
       <div class="quote">
         <p data-t="whyH"></p>
@@ -298,7 +306,8 @@ const TEXT = {
     ctH:"Get a free estimate", ctP:"The fastest way to reach Jorge is a text. Tap below, say what you need, and add a few photos of the area.",
     cPhone:"Call or text", cHours:"Text photos of your project anytime", cEmail:"Email", cEmailSub:"Send photos and a short description",
     cArea:"Service area", cAreaV:"Baltimore County", cLang:"Languages", cLangSub:"We're happy to talk in either language",
-    rights:"All rights reserved.", habla:"Se habla español"
+    rights:"All rights reserved.", habla:"Se habla español",
+    ownerRole:"Owner · Your point of contact from estimate to cleanup", ownerAlt:"Illustrated portrait of Jorge Mercado, owner of JAM Construction Services"
   },
   es:{
     navServices:"Servicios", navWork:"Trabajos", navAbout:"Nosotros", navCta:"Presupuesto gratis",
@@ -317,7 +326,8 @@ const TEXT = {
     ctH:"Pida un presupuesto gratis", ctP:"La forma más rápida de comunicarse con Jorge es por mensaje de texto. Toque abajo, diga lo que necesita y agregue unas fotos del área.",
     cPhone:"Llame o escriba", cHours:"Envíe fotos de su proyecto cuando quiera", cEmail:"Correo electrónico", cEmailSub:"Envíe fotos y una breve descripción",
     cArea:"Área de servicio", cAreaV:"Condado de Baltimore", cLang:"Idiomas", cLangSub:"Con gusto le atendemos en cualquiera de los dos idiomas",
-    rights:"Todos los derechos reservados.", habla:"Se habla español"
+    rights:"Todos los derechos reservados.", habla:"Se habla español",
+    ownerRole:"Dueño · Su contacto desde el presupuesto hasta la limpieza final", ownerAlt:"Retrato ilustrado de Jorge Mercado, dueño de JAM Construction Services"
   }
 };
 
@@ -352,6 +362,15 @@ const PROJECTS = [
     alts:{en:["Curved dry-stacked stone garden wall with a natural flagstone cap in front of a stone house in Cockeysville, MD", "Dry-stacked stone wall curving along a front walkway in Cockeysville, MD", "Long dry-stacked stone garden wall with a natural flagstone cap in Cockeysville, MD"],
           es:["Muro curvo de piedra apilada en seco con cubierta de laja natural frente a una casa de piedra en Cockeysville, MD", "Muro de piedra apilada en seco que sigue la curva de un camino de entrada en Cockeysville, MD", "Muro largo de piedra apilada en seco con cubierta de laja natural en Cockeysville, MD"]},
     photos:["photos/stone-wall-1.jpg","photos/stone-wall-2.jpg","photos/stone-wall-3.jpg"] },
+  { c:"pave", loc:"",
+    title:{en:"Flagstone path & paver fire pit patio", es:"Camino de laja y patio de adoquín con fogata"},
+    note:{
+      en:"A finished backyard: large natural flagstone stepping stones set into the lawn lead out to a round paver patio built around a stone fire pit, with a river-rock bed alongside.",
+      es:"Un patio trasero terminado: grandes piedras de laja natural colocadas en el césped llevan a un patio redondo de adoquines alrededor de una fogata de piedra, con una cama de piedras de río al lado."
+    },
+    alts:{en:["Natural flagstone stepping stones in a lawn leading to a round paver patio with a stone fire pit and rocking chairs"],
+          es:["Piedras de laja natural en el césped que llevan a un patio redondo de adoquines con fogata de piedra y mecedoras"]},
+    photos:["photos/flagstone-path-1.jpg"] },
   { c:"stone", loc:"",
     title:{en:"Flagstone patio with stone fire pit", es:"Patio de laja con fogata de piedra"},
     note:{
@@ -379,6 +398,15 @@ const PROJECTS = [
     alts:{en:["Mortared natural stone veneer on a raised front porch foundation with a stone cap, at a house under construction"],
           es:["Revestimiento de piedra natural con mortero en la base elevada de un porche, con cubierta de piedra, en una casa en construcción"]},
     photos:["photos/stone-veneer-1.jpg"] },
+  { c:"stone", loc:"",
+    title:{en:"Lighted stone stairway", es:"Escalera de piedra iluminada"},
+    note:{
+      en:"A long outdoor stairway of stone steps between stone block retaining walls, with lights set into each step so it's safe to use after dark.",
+      es:"Una larga escalera exterior de piedra entre muros de contención de bloques de piedra, con luces empotradas en cada escalón para usarla con seguridad de noche."
+    },
+    alts:{en:["Outdoor stone stairway at night with lights set into each step between stone block walls"],
+          es:["Escalera exterior de piedra de noche con luces en cada escalón entre muros de bloques de piedra"]},
+    photos:["photos/lit-stairs-1.jpg"] },
   { c:"exterior", loc:"",
     title:{en:"Whole-house sheathing & siding prep", es:"Revestimiento y preparación para siding en toda la casa"},
     note:{
@@ -415,6 +443,15 @@ const PROJECTS = [
     alts:{en:["Paver walkway with a circular medallion being laid on a compacted gravel base at the front entry of a brick home"],
           es:["Camino de adoquines con medallón circular sobre una base de grava compactada en la entrada de una casa de ladrillo"]},
     photos:["photos/walkway-1.jpg"] },
+  { c:"pave", loc:"",
+    title:{en:"Concrete sidewalk & split-rail fence", es:"Acera de concreto y cerca de rieles"},
+    note:{
+      en:"A new concrete sidewalk along the street side of a home, with a wood split-rail fence set beside it to frame the yard.",
+      es:"Una acera de concreto nueva junto a la calle, con una cerca de madera de rieles a un lado para enmarcar el jardín."
+    },
+    alts:{en:["New concrete sidewalk beside a street with a wood split-rail fence along the yard"],
+          es:["Acera de concreto nueva junto a la calle con una cerca de madera de rieles a lo largo del jardín"]},
+    photos:["photos/sidewalk-fence-1.jpg"] },
   { c:"fence", loc:"",
     title:{en:"Property-line fence installation", es:"Instalación de cerca en el lindero"},
     note:{
@@ -439,6 +476,7 @@ const T = k => TEXT[lang][k];
 
 function renderStatic(){
     document.querySelectorAll('[data-t]').forEach(el => { const v = T(el.dataset.t); if (v != null) el.textContent = v; });
+  document.querySelectorAll('[data-alt]').forEach(el => { const v = T(el.dataset.alt); if (v != null) el.alt = v; });
   document.querySelectorAll('.lang a').forEach(a => a.dataset.lang === lang ? a.setAttribute('aria-current','page') : a.removeAttribute('aria-current'));
   $('#filters').setAttribute('aria-label', lang==='es' ? 'Filtrar proyectos' : 'Filter projects');
   $('#lbClose').setAttribute('aria-label', lang==='es' ? 'Cerrar' : 'Close');
