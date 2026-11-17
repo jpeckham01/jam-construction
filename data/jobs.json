@@ -3,21 +3,21 @@
     "c": "fence",
     "loc": "Hunt Valley, MD",
     "title": {
-      "en": "Wood pergola over a backyard deck",
-      "es": "Pérgola de madera sobre un deck"
+      "en": "Pressure-treated pergola over deck",
+      "es": "Pérgola de madera sobre terraza"
     },
     "note": {
-      "en": "A wood pergola over a raised backyard deck, with heavy beams and evenly spaced rafters that frame the outdoor dining area and add filtered shade.",
-      "es": "Una pérgola de madera sobre un deck elevado en el patio trasero, con vigas gruesas y travesaños parejos que enmarcan el comedor exterior y dan sombra filtrada."
+      "en": "Wood pergola built over a composite-style deck beside a red-sided house, with overhead slats and beams. The second photo shows it during construction, with the slats not yet complete.",
+      "es": "Pérgola de madera construida sobre una terraza junto a una casa de revestimiento rojo, con vigas y tablillas arriba. La segunda foto la muestra durante la construcción, con las tablillas sin terminar."
     },
     "alts": {
       "en": [
-        "Wood pergola with heavy beams over a raised deck with an outdoor dining table in Hunt Valley, MD",
-        "Pergola rafters and beams seen from below, over a backyard deck"
+        "Finished wood pergola over a deck with a dining table, chairs and a covered grill beside a red house wall",
+        "Pergola framing seen from above during construction, with slats spanning the beams over the deck and red siding"
       ],
       "es": [
-        "Pérgola de madera con vigas gruesas sobre un deck elevado con mesa de comedor exterior en Hunt Valley, MD",
-        "Vigas y travesaños de la pérgola vistos desde abajo, sobre el deck"
+        "Pérgola de madera terminada sobre una terraza con mesa, sillas y una parrilla cubierta junto a la pared roja de la casa",
+        "Estructura de la pérgola vista desde arriba durante la construcción, con tablillas sobre las vigas, la terraza y el revestimiento rojo"
       ]
     },
     "photos": [
@@ -27,7 +27,6 @@
     "source": "sms",
     "added": "2026-11-17T04:15:02.917Z",
     "smsId": "20261117-041022",
-    "needsWriteUp": true,
     "smsTexts": [
       "Pergola in hunt valley"
     ],
