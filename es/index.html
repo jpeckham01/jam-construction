@@ -79,7 +79,9 @@
   .sec-head p{color:var(--ink-2);font-size:1.05rem}
 
   /* Services */
-  .services{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+  .services{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+  @media (max-width:900px){.services{grid-template-columns:repeat(2,minmax(0,1fr))}}
+  @media (max-width:560px){.services{grid-template-columns:1fr}}
   .svc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:24px}
   .svc-ic{width:44px;height:44px;border-radius:11px;background:#f6e6d9;display:grid;place-items:center;margin-bottom:16px}
   .svc h3{font-size:1.08rem;margin-bottom:6px}
