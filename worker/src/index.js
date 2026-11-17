@@ -5,23 +5,24 @@
 //  - Every request must carry a valid X-Twilio-Signature (signed with TWILIO_AUTH_TOKEN).
 //  - Each text is saved on its own in KV (no read-modify-write, so photos that arrive at the
 //    same moment can't overwrite each other). Photos are downloaded from Twilio right away.
-//  - A cron run every 2 minutes groups a sender's texts into one job once he texts LISTO,
-//    or after 15 quiet minutes, and commits it to the GitHub repo under inbox/<id>/.
+//  - Photos are posted automatically: a cron run every 2 minutes groups a sender's texts into one
+//    job once he has been quiet for 3 minutes (so photos sent together stay together) and commits it
+//    to the GitHub repo under inbox/<id>/. LISTO still works to post right away.
 //    The repo's GitHub Action then strips GPS, resizes, writes the bilingual entry and publishes.
-//  - BORRAR asks the Action to take down the newest texted-in job (if under 24 hours old).
+//  - BORRAR (not advertised to Jorge; meant for the admin) takes down the newest texted-in job.
 //
 // Bindings (wrangler.toml / dashboard):
 //   KV namespace  DRAFTS
 //   vars          ALLOWED_NUMBERS (comma-separated, E.164), GITHUB_REPO, TWILIO_ACCOUNT_SID
 //   secrets       TWILIO_AUTH_TOKEN, GITHUB_TOKEN (fine-grained, Contents: read & write on the repo only)
 
-const IDLE_MS = 15 * 60 * 1000;   // finish a job after 15 quiet minutes
+const IDLE_MS = 3 * 60 * 1000;    // post a job after 3 quiet minutes
 const LISTO_GRACE_MS = 60 * 1000; // after LISTO, wait a minute for stragglers (KV lists lag a little)
 const IMAGE_EXT = { "image/jpeg": "jpg", "image/jpg": "jpg", "image/png": "png", "image/gif": "gif", "image/webp": "webp", "image/heic": "heic", "image/heif": "heif" };
 
 const MSG = {
-  welcome: "Recibido ✅ Mande todas las fotos del trabajo y, si quiere, una nota corta (qué es y en qué ciudad). Cuando termine, escriba LISTO.",
-  listo: "Perfecto 👍 Lo publicamos en unos minutos y le mandamos el enlace.",
+  welcome: "Recibido ✅ Lo publicamos en la página en unos minutos. Si quiere, mande una nota corta: qué trabajo es y en qué ciudad.",
+  listo: "Perfecto 👍 Lo publicamos en un momento.",
   borrar: "Recibido. Quitamos la última publicación en unos minutos.",
   video: "Por ahora la página solo acepta fotos 📷, no videos.",
 };
@@ -79,7 +80,7 @@ export default {
     return twiml();
   },
 
-  // Every 2 minutes: finish any job that is done.
+  // Every 2 minutes: post any job whose sender has gone quiet.
   async scheduled(event, env, ctx) {
     ctx.waitUntil(finishReadyJobs(env));
   },

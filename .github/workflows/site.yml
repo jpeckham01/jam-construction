@@ -40,6 +40,8 @@ jobs:
         run: node scripts/process-inbox.mjs
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          ADMIN_NUMBER: ${{ vars.ADMIN_NUMBER }}
+          MAX_JOBS: ${{ vars.MAX_JOBS }}
 
       - name: Build pages
         run: npm run build

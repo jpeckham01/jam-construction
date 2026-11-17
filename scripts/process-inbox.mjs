@@ -8,16 +8,18 @@
 //   - re-encodes every photo (sharp drops EXIF, so GPS location never reaches the site), resizes to 1600px max
 //   - asks Claude for a title, category, town (only if Jorge named one) and English/Spanish text
 //   - adds the job to the top of data/jobs.json and deletes the inbox folder
-// "BORRAR" arrives as command "delete-last" and removes the newest texted-in job if it is under 24 hours old.
+// "BORRAR" (admin) arrives as command "delete-last" and removes the newest texted-in job.
+// The gallery is capped at MAX_JOBS; the oldest jobs beyond it move to data/archive.json and their photos
+// to archive/photos/ (kept in the repo, not published).
 // Messages to send once the site is live are written to GITHUB_OUTPUT as `notify` (see scripts/notify.mjs).
-import { readFileSync, writeFileSync, readdirSync, existsSync, rmSync, appendFileSync, unlinkSync } from "node:fs";
+import { readFileSync, writeFileSync, readdirSync, existsSync, rmSync, appendFileSync, unlinkSync, mkdirSync, renameSync } from "node:fs";
 import path from "node:path";
 import sharp from "sharp";
 
 const SITE = process.env.SITE_URL || "https://jamconstructionmd.com/";
 const MODEL = process.env.AI_MODEL || "claude-sonnet-5-5";
 const CATS = ["stone", "pave", "fence", "exterior", "build"];
-const UNDO_HOURS = 24;
+const MAX_JOBS = Number(process.env.MAX_JOBS) || 24; // jobs shown in the gallery, featured included
 
 const jobsPath = "data/jobs.json";
 const jobs = JSON.parse(readFileSync(jobsPath, "utf8"));
@@ -98,14 +100,13 @@ for (const id of dirs) {
 
   if (note.command === "delete-last") {
     const i = jobs.findIndex((j) => j.source === "sms");
-    const fresh = i >= 0 && Date.now() - Date.parse(jobs[i].added) < UNDO_HOURS * 3600e3;
-    if (fresh) {
+    if (i >= 0) {
       const [gone] = jobs.splice(i, 1);
       for (const p of gone.photos) if (existsSync(p)) unlinkSync(p);
       notify.push({ to: note.from, body: `Listo. Quitamos "${gone.title.es}" de la página.` });
-      notify.push({ to: "admin", body: `JAM site: Jorge removed "${gone.title.en}" (BORRAR).` });
+      if (note.from !== process.env.ADMIN_NUMBER) notify.push({ to: "admin", body: `JAM site: "${gone.title.en}" was removed (BORRAR).` });
     } else {
-      notify.push({ to: note.from, body: "No hay ninguna publicación de las últimas 24 horas para borrar." });
+      notify.push({ to: note.from, body: "No hay ninguna publicación enviada por texto para borrar." });
     }
     rmSync(dir, { recursive: true, force: true });
     continue;
@@ -135,10 +136,32 @@ for (const id of dirs) {
   catch (e) { console.log(`AI write-up failed for ${id}: ${e.message}`); w = clean({}, texts, photos.length); }
 
   jobs.unshift({ ...w, photos, source: "sms", added: new Date().toISOString(), smsId: id });
-  notify.push({ to: note.from, body: `✅ Su trabajo ya está en la página: ${SITE}#work\nSi algo está mal, escriba BORRAR (dentro de 24 horas).` });
-  notify.push({ to: "admin", body: `JAM site: new job posted, "${w.title.en}" (${photos.length} photo${photos.length > 1 ? "s" : ""}). ${SITE}#work` });
+  notify.push({ to: note.from, body: `✅ Su trabajo ya está en la página: ${SITE}#work` });
+  if (note.from !== process.env.ADMIN_NUMBER) notify.push({ to: "admin", body: `JAM site: new job posted, "${w.title.en}" (${photos.length} photo${photos.length > 1 ? "s" : ""}). ${SITE}#work` });
   rmSync(dir, { recursive: true, force: true });
   console.log(`posted ${id}: ${w.title.en}`);
+}
+
+// Keep the gallery to MAX_JOBS: featured jobs always stay; the oldest of the rest are archived.
+const keepRest = Math.max(0, MAX_JOBS - jobs.filter((j) => j.featured).length);
+const rest = jobs.filter((j) => !j.featured);
+const retired = rest.slice(keepRest);
+if (retired.length) {
+  const archivePath = "data/archive.json";
+  const archive = existsSync(archivePath) ? JSON.parse(readFileSync(archivePath, "utf8")) : [];
+  mkdirSync("archive/photos", { recursive: true });
+  for (const job of retired) {
+    job.photos = job.photos.map((p) => {
+      const to = path.join("archive", p);
+      if (existsSync(p)) renameSync(p, to);
+      return to;
+    });
+    job.archived = new Date().toISOString();
+    archive.unshift(job);
+    jobs.splice(jobs.indexOf(job), 1);
+    console.log(`archived: ${job.title.en}`);
+  }
+  writeFileSync(archivePath, JSON.stringify(archive, null, 2) + "\n");
 }
 
 writeFileSync(jobsPath, JSON.stringify(jobs, null, 2) + "\n");

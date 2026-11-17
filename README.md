@@ -14,14 +14,16 @@ Website for Jorge Mercado's JAM Construction Services LLC (stone walls, stairs, 
 
 ## Text-to-website (Jorge texts photos → new job on the site)
 
-1. Jorge texts photos (and optionally a short note, e.g. "patio de piedra en Towson") to the Twilio number, then "LISTO".
+1. Jorge (or the admin) texts photos, optionally with a short note (e.g. "patio de piedra en Towson"), to the Twilio number.
 2. Twilio sends each text to the Cloudflare Worker in `worker/` (`POST /sms`). It checks the Twilio signature, only accepts
-   `ALLOWED_NUMBERS`, saves each text and photo in KV, and every 2 minutes groups a finished conversation (LISTO, or
-   15 quiet minutes) into one commit under `inbox/<id>/`.
+   `ALLOWED_NUMBERS`, saves each text and photo in KV, and every 2 minutes posts a conversation that has been quiet for
+   3 minutes (or got "LISTO") as one commit under `inbox/<id>/`.
 3. That push runs `.github/workflows/site.yml`: `scripts/process-inbox.mjs` re-encodes the photos (no GPS/EXIF, max 1600px),
    asks Claude for the title/category/town/English+Spanish text, adds the job to the top of `data/jobs.json`, builds,
    commits, publishes to GitHub Pages, then `scripts/notify.mjs` texts Jorge the link and sends the admin a heads-up.
-4. "BORRAR" within 24 hours removes the newest texted-in job.
+4. "BORRAR" (admin) removes the newest texted-in job. Jorge isn't told about it; the admin manages removals.
+5. The gallery shows at most `MAX_JOBS` jobs (repo variable, default 24, featured included). Older ones move to
+   `data/archive.json` and `archive/photos/` (kept in the repo, not published).
 
 Secrets: Worker → `TWILIO_AUTH_TOKEN`, `GITHUB_TOKEN`. GitHub repo → secrets `ANTHROPIC_API_KEY`,
 `TWILIO_AUTH_TOKEN`; variables `TWILIO_ACCOUNT_SID`, `TWILIO_FROM` (the Twilio number), `ADMIN_NUMBER`.
