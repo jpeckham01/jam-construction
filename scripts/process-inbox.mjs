@@ -27,7 +27,7 @@ if (API_KEY) {
     `spaces/line breaks/odd characters inside: ${bad.length}${bad.length ? " (codes " + [...new Set(bad.map((c) => c.charCodeAt(0)))].join(",") + ")" : ""}`);
 }
 const CATS = ["stone", "pave", "fence", "exterior", "build", "interior"];
-const MAX_JOBS = Number(process.env.MAX_JOBS) || 48; // jobs shown in the gallery, featured included
+const MAX_JOBS = Number(process.env.MAX_JOBS) || 36; // jobs shown in the gallery (3 pages of 12), featured included
 // Photos sent within MERGE_HOURS of the last texted-in job are compared with it; if they show the same job they
 // are added to it instead of starting a new post. If the AI can't be reached, photos within FALLBACK_MERGE_HOURS
 // are added to the last job. Starting a text with NUEVO (or NEW) always makes a new post.

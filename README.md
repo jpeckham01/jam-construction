@@ -22,7 +22,7 @@ Website for Jorge Mercado's JAM Construction Services LLC (stone walls, stairs, 
    asks Claude for the title/category/town/English+Spanish text, adds the job to the top of `data/jobs.json`, builds,
    commits, publishes to GitHub Pages, then `scripts/notify.mjs` texts Jorge the link and sends the admin a heads-up.
 4. "BORRAR" (admin) removes the newest texted-in job. Jorge isn't told about it; the admin manages removals.
-5. The gallery shows at most `MAX_JOBS` jobs (repo variable, default 48, featured included); the gallery shows 12 per page. Older ones move to
+5. The gallery shows at most 36 jobs (`MAX_JOBS` in the workflow: 3 pages of 12, featured included). Older ones move to
    `data/archive.json` and `archive/photos/` (kept in the repo, not published).
 
 Secrets: Worker → `TWILIO_AUTH_TOKEN`, `GITHUB_TOKEN`. GitHub repo → secrets `ANTHROPIC_API_KEY`,
