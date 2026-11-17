@@ -1,6 +1,32 @@
 [
   {
     "c": "stone",
+    "loc": "",
+    "title": {
+      "en": "Recent project",
+      "es": "Proyecto reciente"
+    },
+    "note": {
+      "en": "",
+      "es": ""
+    },
+    "alts": {
+      "en": [
+        "Recent project"
+      ],
+      "es": [
+        "Proyecto reciente"
+      ]
+    },
+    "photos": [
+      "photos/sms-20261117-041022-1.jpg"
+    ],
+    "source": "sms",
+    "added": "2026-11-17T04:15:02.917Z",
+    "smsId": "20261117-041022"
+  },
+  {
+    "c": "stone",
     "loc": "Cockeysville, MD",
     "featured": true,
     "title": {
