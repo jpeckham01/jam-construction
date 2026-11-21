@@ -1,6 +1,36 @@
 [
   {
     "c": "fence",
+    "loc": "",
+    "title": {
+      "en": "Split-rail fence on a sloped yard",
+      "es": "Cerca de rieles en terreno inclinado"
+    },
+    "note": {
+      "en": "A split-rail style fence with wood posts and rails runs across a grassy slope. Shown during construction, with tools and a bucket on the ground and the fence still being set.",
+      "es": "Cerca estilo split-rail con postes y rieles de madera sobre un terreno inclinado con pasto. Se muestra durante la construcción, con herramientas y un balde en el suelo y la cerca todavía en proceso."
+    },
+    "alts": {
+      "en": [
+        "Wood post-and-rail fence in two sections on a leafy slope, with a worker kneeling near the far end.",
+        "Wood rail fence running down a grassy hillside, with a shovel and tools on the ground and a worker at right."
+      ],
+      "es": [
+        "Cerca de postes y rieles de madera en dos tramos sobre una pendiente con hojas, con un trabajador agachado al fondo.",
+        "Cerca de rieles de madera bajando por una loma con pasto, con una pala y herramientas en el suelo y un trabajador a la derecha."
+      ]
+    },
+    "photos": [
+      "photos/sms-20261121-200741-1.jpg",
+      "photos/sms-20261121-200741-2.jpg"
+    ],
+    "source": "sms",
+    "added": "2026-11-21T20:07:41.997Z",
+    "smsId": "20261121-200741",
+    "smsTexts": []
+  },
+  {
+    "c": "fence",
     "loc": "Hunt Valley, MD",
     "title": {
       "en": "Pressure-treated pergola over deck",
