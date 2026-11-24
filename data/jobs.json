@@ -1,5 +1,35 @@
 [
   {
+    "c": "interior",
+    "loc": "",
+    "title": {
+      "en": "Basement floor trench for new drain plumbing",
+      "es": "Zanja en piso del sótano para drenaje nuevo"
+    },
+    "note": {
+      "en": "Shown during construction: white PVC pipe and fittings laid out, and a trench cut through the concrete floor slab. Gravel is piled nearby and a red demolition hammer is on the floor.",
+      "es": "Se muestra durante la obra: tubería y conexiones de PVC blancas, y una zanja cortada en la losa de concreto del piso. Hay grava a un lado y un martillo demoledor rojo en el piso."
+    },
+    "alts": {
+      "en": [
+        "White PVC pipes lying along a wall, with PVC wye and bend fittings lined up on a gray concrete floor.",
+        "Narrow trench cut through a broken concrete floor, with gravel piles, a red demolition hammer and a yellow cord nearby."
+      ],
+      "es": [
+        "Tubos de PVC blancos junto a una pared, con conexiones en Y y codos de PVC alineados sobre un piso de concreto gris.",
+        "Zanja angosta abierta en un piso de concreto roto, con montones de grava, un martillo demoledor rojo y un cable amarillo cerca."
+      ]
+    },
+    "photos": [
+      "photos/sms-20261124-180029-1.jpg",
+      "photos/sms-20261124-180029-2.jpg"
+    ],
+    "source": "sms",
+    "added": "2026-11-24T18:00:29.650Z",
+    "smsId": "20261124-180029",
+    "smsTexts": []
+  },
+  {
     "c": "fence",
     "loc": "",
     "title": {
